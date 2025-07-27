@@ -1,0 +1,163 @@
+ @font-face {
+  font-family: 'Chillax-Regular';
+  src: url('../fonts/Chillax-Regular.woff2') format('woff2'),
+       url('../fonts/Chillax-Regular.woff') format('woff'),
+       url('../fonts/Chillax-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+      body {
+        font-family: Chillax-Regular;
+        display: flex;
+        margin: 0;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+        background-color: #0a1714;
+        color: #dfeeea;
+      }
+      .project-tile.opacity{
+        transform: translateX(0);
+      }
+.head{
+  opacity: 0;
+  transition: opacity 600ms ease;
+}
+.head.fade{
+  opacity: 1;
+}
+      #navbar {
+        background-color: #91d6c6;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        z-index: 999999;
+      }
+      #navbar a {
+        padding: 20px;
+        text-decoration: none;
+        color: #0a1714;
+      }
+      #navbar a:hover {
+        background-color: #3bd1ae;
+      }
+      #welcome-section {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        text-wrap: balance;
+      }
+      section {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .project-tile {
+        cursor: pointer;
+        transform: translateX(-50%);
+        width: 220px;
+        height: 200px;
+        background-color: #267f6b;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 30px;
+        border-radius: 20px;
+        transition: transform 0.3s ease,opacity 600ms ease;
+      }
+      .project-tile:hover {
+        transform: scale(1.08);
+      }
+      .project-tile a {
+        font-size: 1.2rem;
+        color: #dfeeea;
+        text-decoration: none;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      #project-container {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      #projects h1 {
+        text-align: center;
+        text-wrap: balance;
+      }
+      #welcome-section h1 {
+        text-align: center;
+        font-size: 4rem;
+      }
+      #welcome-section h3 {
+        text-align: center;
+        margin-top: -40px;
+        color: #3bd1ae;
+      }
+      #contact-links {
+        display: grid;
+        gap: 50px;
+        grid-template-columns: repeat(5,1fr);
+       
+      }
+      #contact-links a.back{
+        transform: translateY(0);
+      }
+      #contact-links a {
+         transform: translateY(100%);
+        text-decoration: none;
+        padding: 5px;
+        color: #dfeeea;
+        transition: transform 0.4s ease;
+      }
+      #contact-links a:hover {
+        transform: translateY(-5px);
+      }
+      #contact h1 {
+        text-align: center;
+        font-size: 2rem;
+      }
+      .footer {
+        padding: 10px;
+        text-align: center;
+        border-top: 2px solid #3bd1ae;
+        bottom: 0;
+        color: white;
+        bottom: 0;
+      }
+      #contact {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+      }
+      @media (max-width: 786px) {
+        #project-container {
+          grid-template-columns: repeat(1, 1fr);
+          place-items: center;
+        }
+        #projects h1 {
+          text-align: center;
+          font-size: 1rem;
+        }
+        #contact-links {
+  grid-template-columns: repeat(2,1fr);
+        }
+        .project-tile {
+          width: 180px;
+          height: 130px;
+          
+        }
+        .project-tile a {
+font-size: 0.95rem;
+        }
+      }
+      a{
+        outline: none;
+      }
