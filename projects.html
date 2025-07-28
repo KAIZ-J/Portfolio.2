@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script
+      src="https://kit.fontawesome.com/9603c04a31.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <style>
+        @font-face {
+  font-family: 'Chillax-Regular';
+  src: url('../fonts/Chillax-Regular.woff2') format('woff2'),
+       url('../fonts/Chillax-Regular.woff') format('woff'),
+       url('../fonts/Chillax-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+      body {
+        font-family: Chillax-Regular;
+        display: flex;
+        margin: 0;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+        background-color: #0a1714;
+        color: #dfeeea;
+      }
+         #project-container {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      #projects h1 {
+        text-align: center;
+        text-wrap: balance;
+        font-size: 2rem;
+      }
+      .project-card.opacity{
+        opacity: 1;
+      }
+        .project-card {
+            opacity: 0;
+         color: #0a1714;
+        cursor: pointer;
+        width: 220px;
+        height: 200px;
+        background-color: #eaf5f2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 30px;
+        border-radius: 20px;
+        transition: transform 0.3s ease,opacity 600ms ease;
+      }
+      .project-card:hover {
+        transform: scale(1.08);
+      }
+      .project-card a {
+        font-size: 1.2rem;
+        color: #0a1714;
+        text-decoration: none;
+      }
+       @media (max-width: 786px) {
+        #projects{
+        width: 100%;
+      }
+        #project-container {
+          grid-template-columns: repeat(1, 1fr);
+          place-items: center;
+        }
+        #projects h1 {
+          text-align: center;
+          font-size: 2rem;
+        }
+        .project-card {
+          width: 80%;
+          height: 130px;
+          
+        }
+        .project-card a {
+font-size: 1.3rem;
+        }
+        .isActive{
+            margin-top: -80px;
+      margin-right: 20px;
+        }
+      }
+      #header{
+display: flex;
+align-items: center;
+justify-content: space-around;
+      }
+      #back{
+        color: #eaf5f2;
+      }
+      #select-container{
+        display: flex;
+        align-items: center;
+        padding: 30px;
+      }
+      select{
+        font-family: chillax-regular;
+        outline: none;
+        height: 30px;
+        background: transparent;
+        border: none;
+        color: #6d7472;
+        text-align: center;
+      }
+      .isActive{
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: red;
+        border-radius: 20px;
+      align-self:flex-end;
+      margin-top: -130px;
+      margin-right: 20px;
+    
+      }
+    </style>
+</head>
+<body>
+   
+    <section class="section" id="projects">
+       <div id="header">
+<a href="/index.html" id="back"><i class="fa-solid fa-arrow-left fa-2xl"></i></a> 
+      
+      <div id="select-container">
+        <p>Sort:</p>
+        <select id="select">
+            <option value="default">Default</option>
+            <option value="az">A-Z</option>
+             <option value="za">Z-A</option>
+              <option value="active">Active</option>
+              <option value="non-active">Not-Active</option>
+        </select>
+      </div>
+       </div> 
+       <h1 class="head">All Projects</h1>
+      <div id="project-container">
+      </div>
+    </section> <br>
+    <script>
+
+        const projectsObject = [
+            {
+                image:"question",
+                link:"https://faiz-quizapp.netlify.app/",
+                content:"Quiz app"
+            },
+            {
+                image:"calculator",
+                link:"https://faiz-rps.netlify.app/",
+                content:"Calculator"
+            },
+            
+             {
+                image:"hand-back-fist",
+                link:"https://faiz-rps.netlify.app/",
+                content:"RPS game"
+            },
+            {
+                image:"list",
+                link:null,
+                content:"To-do list"
+            },
+            {
+                image:"lock",
+                link:"https://faiz-uc.netlify.app/",
+                content:"Password Generator"
+            },
+             {
+                image:"pen",
+                link:null,
+                content:"Quick Notes"
+            },
+            {
+                image:"repeat",
+                link:"https://faiz-uc.netlify.app/",
+                content:"Unit Converter"
+            },
+            {
+                image:"greater-than-equal",
+                link:null,
+                content:"Math quiz"
+            },
+            {
+                image:"cart-shopping",
+                link:"https://atom-tec.netlify.app/",
+                content:"Tech E-commerce"
+            },
+             {
+                image:"gift",
+                link:"https://fancy-suprise.netlify.app/",
+                content:"Design E-commerce"
+            },
+        ]
+        const projectsContainer=document.getElementById("project-container");
+        function container(array){
+             projectsContainer.innerHTML="";
+            array.forEach((item)=>{
+                projectsContainer.innerHTML+=`<div class="project-card">
+          <i class="fa-solid fa-${item.image} fa-2xl"></i>
+          <a href="${item.link!==null?item.link:"#"}" target="${item.link!==null?"_blank":"_self"}">${item.content}</a>
+          <div class="isActive" style="background-color:${item.link!==null?"green":"red"}"></div>
+        </div>`
+        const observer = new IntersectionObserver((entries)=>{
+        entries.forEach((entry)=>{
+          if(entry.isIntersecting){
+        entry.target.classList.add("opacity")
+          }
+          else{
+            entry.target.classList.remove("opacity")
+          }
+        })
+      },{})
+        const cards = document.querySelectorAll(".project-card");
+        cards.forEach(el => observer.observe(el));
+            })
+        }
+         const select = document.getElementById("select");
+     select.addEventListener("change",function(){
+switch(select.value){
+        case "az":
+     container(projectsObject.sort((a,b)=>a.content.localeCompare(b.content)));
+     break;
+       case "za":
+     container(projectsObject.sort((a,b)=>b.content.localeCompare(a.content)));
+     break;
+            case "active":
+     container(projectsObject.filter(item=>item.link!==null));
+     break;
+     case "non-active":
+     container(projectsObject.filter(item=>item.link===null));
+     break;
+     default:
+        container(projectsObject);
+        break;
+     }
+     })
+            container(projectsObject);
+       
+        
+    
+     
+    </script>
+</body>
+</html>
