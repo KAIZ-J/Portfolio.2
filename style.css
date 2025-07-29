@@ -8,7 +8,7 @@
   font-style: normal;
 }
       body {
-        font-family: Chillax-Regular;
+        font-family: poppins;
         display: flex;
         margin: 0;
         width: 100%;
@@ -18,7 +18,7 @@
         color: #dfeeea;
       }
       .project-tile.opacity{
-        transform: translateX(0);
+        translate:0;
       }
 .head{
   opacity: 0;
@@ -59,7 +59,7 @@
       .project-tile {
          color: #0a1714;
         cursor: pointer;
-        transform: translateX(-50%);
+        translate:-50%;
         width: 220px;
         height: 200px;
         background-color: #eaf5f2;
@@ -70,10 +70,10 @@
         text-align: center;
         gap: 30px;
         border-radius: 20px;
-        transition: transform 0.3s ease,opacity 600ms ease;
+        transition: scale 0.3s ease,translate 1s ease;
       }
       .project-tile:hover {
-        transform: scale(1.08);
+        scale:1.08;
       }
       .project-tile a {
         font-size: 1.2rem;

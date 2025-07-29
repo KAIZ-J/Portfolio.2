@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+     <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Poppins|Montserrat"
+    />
     <script
       src="https://kit.fontawesome.com/9603c04a31.js"
       crossorigin="anonymous"
@@ -19,7 +23,7 @@
   font-style: normal;
 }
       body {
-        font-family: Chillax-Regular;
+        font-family: poppins;
         display: flex;
         margin: 0;
         width: 100%;
@@ -27,6 +31,39 @@
         flex-direction: column;
         background-color: #0a1714;
         color: #dfeeea;
+      }
+       #header{
+display: flex;
+align-items: center;
+justify-content: space-around;
+      }
+      #back{
+        color: #eaf5f2;
+      }
+      #select-container{
+        display: flex;
+        align-items: center;
+        padding: 30px;
+      }
+      select{
+        font-family: chillax-regular;
+        outline: none;
+        height: 30px;
+        background: transparent;
+        border: none;
+        color: #6d7472;
+        text-align: center;
+      }
+      .isActive{
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: red;
+        border-radius: 20px;
+      align-self:flex-end;
+      margin-top: -130px;
+      margin-right: 20px;
+    
       }
          #project-container {
         display: grid;
@@ -90,39 +127,7 @@ font-size: 1.3rem;
       margin-right: 20px;
         }
       }
-      #header{
-display: flex;
-align-items: center;
-justify-content: space-around;
-      }
-      #back{
-        color: #eaf5f2;
-      }
-      #select-container{
-        display: flex;
-        align-items: center;
-        padding: 30px;
-      }
-      select{
-        font-family: chillax-regular;
-        outline: none;
-        height: 30px;
-        background: transparent;
-        border: none;
-        color: #6d7472;
-        text-align: center;
-      }
-      .isActive{
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        background-color: red;
-        border-radius: 20px;
-      align-self:flex-end;
-      margin-top: -130px;
-      margin-right: 20px;
-    
-      }
+     
     </style>
 </head>
 <body>
