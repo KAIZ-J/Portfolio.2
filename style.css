@@ -70,7 +70,7 @@
         text-align: center;
         gap: 30px;
         border-radius: 20px;
-        transition: scale 0.3s ease,translate 1s ease;
+        transition: scale 0.3s ease,translate 800ms ease;
       }
       .project-tile:hover {
         scale:1.08;
