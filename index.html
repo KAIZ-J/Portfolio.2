@@ -1,63 +1,391 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio.2</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Poppins|Montserrat"
-    />
-    <script
-      src="https://kit.fontawesome.com/9603c04a31.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <nav id="navbar">
-      <a href="#welcome-section">Home</a>
-      <a href="#projects">My Projects</a>
-      <a href="#contact">Contact me</a>
-    </nav>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Faiz Jemal — Portfolio</title>
 
-    <section class="section" id="welcome-section">
-      <h1 class="head">Hey I am Faiz</h1>
-      <h3><i> a frontend web developer </i></h3>
-    </section>
-    <section class="section" id="projects">
-      <h1 class="head">Here are some of the projects i worked on <a href="/projects.html">See more</a> </h1>
-      <div id="project-container">
-        <div class="project-tile">
-          <i class="fa-solid fa-lock fa-2xl"></i>
-          <a href="https://faiz-cr.netlify.app/" target="_blank">Password Generator</a>
-        </div>
-        <div class="project-tile">
-          <i class="fa-solid fa-cart-shopping fa-2xl"></i>
-          <a href="https://atom-tec.netlify.app/" target="_blank">E-Commerce Site</a>
-        </div>
-        <div class="project-tile">
-          <i class="fa-solid fa-hand-back-fist fa-2xl"></i>
-          <a href="https://faiz-rps.netlify.app/" target="_blank">RPS Game</a>
-        </div>
+  <!-- Tailwind CDN for utility classes -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/9603c04a31.js" crossorigin="anonymous"></script>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <div class="spotlight" id="spotlight" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div> 
+  <!-- NAV -->
+  <header class="site-nav" role="banner" aria-label="Site header">
+    <div class="brand" aria-hidden="false">
+      <div class="logo" aria-hidden="true">FJ</div>
+      <div style="display:flex;flex-direction:column;">
+        <div style="font-size:13px;font-weight:700;color:var(--text);">Faiz</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:-2px">Frontend dev</div> 
       </div>
-    </section>
-    <section class="section" id="contact">
-     <div>
-      <h1 class="head">Get In Touch...</h1>
-     </div> 
-      <div id="contact-links">
-        <a href="" class="links"><i class="fa-brands fa-facebook fa-2xl"></i> Facebook</a>
-        <a href="https://github.com/" target="_blank" class="links"><i class="fa-brands fa-github fa-2xl"></i> Github</a>
-        <a href="" class="links"><i class="fa-brands fa-x-twitter fa-2xl"> </i> Twitter</a>
-        <a href="" class="links"><i class="fa-solid fa-phone fa-2xl"></i> Call me</a>
-        <a href="" class="links" id="email-link"><i class="fa-solid fa-at fa-2xl"></i> Email me</a>
+    </div>
+
+    <div class="nav-actions">
+      <a class="primary" href="#projects-business" aria-label="Go to projects">Projects</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main class="hero" id="home" role="main" aria-labelledby="hero-name">
+   
+
+    <div class="hero-inner">
+      <h1 id="hero-name" class="name">Faiz Jemal</h1>
+      <div class="profession" tabindex="0" aria-label="Creative Developer and Designer">Creative Developer ✦ Designer</div>
+      <p class="hero-sub">I build clean interfaces with subtle motion and considered details — readable, refined, and designed to perform.</p>
+
+      <div style="margin-top:1.4rem; display:flex; gap:12px; justify-content:center;">
+        <a class="btn live" href="#projects-business">View Business Work</a>
+        <a class="btn ghost" href="#projects-dev">View Dev Tools</a>
       </div>
-      <div class="footer">Copyright &copy 2025; Made By Fazi</div>
-    </section>
-    <script src="script.js">
-      
-    </script>
-  </body>
+    </div>
+  </main>
+
+ <!-- BUSINESS -->
+<section id="projects-business" class="content" aria-labelledby="business-title">
+  <div class="container">
+    <h3 id="business-title" class="section-title">Business Projects</h3>
+    <p class="section-sub">Projects for small businesses and brands — marketing-focused, conversion-aware, and polished.</p>
+
+    <div class="cards" id="cards-business"> 
+
+      <!-- Sudaro Beans -->
+      <article class="card3d">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="icon"><i class="fa-solid fa-mug-saucer"></i></div>
+            <h4>Sudaro Beans</h4>
+            <p>Branding, product pages, and e-commerce setup for a specialty coffee brand.</p>
+          </div>
+          <div class="card-back">
+            <a href="#" target="_blank" class="view-btn">View Project</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Fancy Surprise Planner -->
+      <article class="card3d">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="icon"><i class="fa-solid fa-gift"></i></div>
+            <h4>Fancy Surprise Planner</h4>
+            <p>Elegant event decoration platform with creative themed packages.</p>
+          </div>
+          <div class="card-back">
+            <a href="#" target="_blank" class="view-btn">View Project</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Atom Tech Center -->
+      <article class="card3d">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <h4>Atom Tech Center</h4>
+            <p>Landing design, course listings, and contact funnels optimized for conversion.</p>
+          </div>
+          <div class="card-back">
+            <a href="#" target="_blank" class="view-btn">View Project</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- DEV TOOLS -->
+<section id="projects-dev" class="content" aria-labelledby="dev-title" style="background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);">
+  <div class="container">
+    <h3 id="dev-title" class="section-title">Developer Tools</h3>
+    <p class="section-sub">Tools and small experiences — code-forward, reusable, and neat.</p>
+
+    <div class="cards" id="cards-dev">
+
+      <!-- Animatrix -->
+      <article class="card3d">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="icon"><i class="fa-solid fa-magic-wand-sparkles"></i></div>
+            <h4>Animatrix</h4>
+            <p>CSS animation playground — small, reusable snippets and visual effects.</p>
+          </div>
+          <div class="card-back">
+            <a href="#" target="_blank" class="view-btn">View Project</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Palettr -->
+      <article class="card3d">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="icon"><i class="fa-solid fa-palette"></i></div>
+            <h4>Palettr</h4>
+            <p>Color tool & palette generator — quick copy and reuse for UI work.</p>
+          </div>
+          <div class="card-back">
+            <a href="#" target="_blank" class="view-btn">View Project</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- GAMES -->
+<section id="projects-games" class="content" aria-labelledby="games-title">
+  <div class="container">
+    <h3 id="games-title" class="section-title">Games</h3>
+    <p class="section-sub">Small interactive games and experiments — quick to load and fun to play.</p>
+
+    <div class="cards" id="cards-games">
+
+      <!-- Memory Game -->
+      <article class="card3d">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="icon"><i class="fa-solid fa-brain"></i></div>
+            <h4>Memory Game</h4>
+            <p>Simple matching game — light UI and fast UX.</p>
+          </div>
+          <div class="card-back">
+            <a href="#" target="_blank" class="view-btn">Play Game</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Hangman -->
+      <article class="card3d">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="icon"><i class="fa-solid fa-skull-crossbones"></i></div>
+            <h4>Hangman</h4>
+            <p>Classic hangman — smooth visuals and responsive gameplay.</p>
+          </div>
+          <div class="card-back">
+            <a href="#" target="_blank" class="view-btn">Play Game</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tic Tac Toe -->
+      <article class="card3d">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="icon"><i class="fa-solid fa-x"></i></div>
+            <h4>Tic Tac Toe</h4>
+            <p>Two-player & single-player modes with clean visuals.</p>
+          </div>
+          <div class="card-back">
+            <a href="#" target="_blank" class="view-btn">Play Game</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- SHOW ALL -->
+ 
+    <div class="container show-wrap">
+      <a class="show-all" href="/projects.html">Show All Projects</a>
+    </div>
+  
+
+  <!-- CONTACT -->
+  <footer id="contact" class="site-foot" role="contentinfo" aria-labelledby="contact-label">
+    <div class="container">
+      <h4 id="contact-label" style="color:var(--text);font-weight:700;margin-bottom:8px">Contact</h4>
+      <p style="color:var(--muted);margin-bottom:18px">Email: <a href="mailto:your.email@example.com" style="color:var(--accent)">your.email@example.com</a></p>
+      <div style="display:flex;justify-content:center;gap:12px">
+        <a class="btn live" href="https://github.com/" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>&nbsp;Github</a>
+        <a class="btn ghost" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i>&nbsp;Facebook</a>
+      </div>
+      <p style="color:var(--muted); margin-top:28px; font-size:0.92rem">© 2025 Faiz Jemal</p>
+    </div>
+  </footer>
+
+<script>
+/* ----------------- Spotlight follow (soft) ----------------- */
+const spotlight = document.getElementById('spotlight');
+if (spotlight && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth) * 100;
+    const y = (e.clientY / window.innerHeight) * 100;
+    spotlight.style.setProperty('--mx', x + '%');
+    spotlight.style.setProperty('--my', y + '%');
+  });
+  // center when leaving
+  document.addEventListener('mouseout', ()=> {
+    spotlight.style.setProperty('--mx', '50%');
+    spotlight.style.setProperty('--my', '50%');
+  });
+}
+
+/* ----------------- Tilt cards (pointer movement) ----------------- */
+function attachTilt(card) {
+  if (window.matchMedia('(pointer: coarse)').matches) return; // skip on touch
+  let bounds;
+  function onEnter(){ bounds = card.getBoundingClientRect(); card.style.transition = 'transform 180ms cubic-bezier(.2,.9,.2,1)'; }
+  function onMove(e){
+    const px = ( (e.clientX - bounds.left) / bounds.width ) - 0.5;
+    const py = ( (e.clientY - bounds.top) / bounds.height ) - 0.5;
+    const rx = (-py) * 6; // rotateX
+    const ry = (px) * 8;  // rotateY
+    const tz = 6;         // slight z-scale via translateZ
+    card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(${tz}px)`;
+  }
+  function onLeave(){
+    card.style.transition = 'transform 420ms cubic-bezier(.2,.9,.2,1)';
+    card.style.transform = '';
+  }
+  card.addEventListener('pointerenter', onEnter);
+  card.addEventListener('pointermove', onMove);
+  card.addEventListener('pointerleave', onLeave);
+}
+
+// init tilt for all cards
+document.querySelectorAll('.card').forEach(attachTilt);
+
+/* ----------------- Staggered reveal using IntersectionObserver ----------------- */
+(function(){
+  const opts = { root:null, rootMargin: '0px', threshold: 0.12 };
+  const io = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const cards = entry.target.querySelectorAll('.card');
+      cards.forEach((c, i) => {
+        c.style.opacity = 0;
+        c.style.transform = c.style.transform || 'translateY(18px)';
+        setTimeout(() => {
+          c.style.transition = 'opacity .6s cubic-bezier(.2,.9,.2,1), transform .6s cubic-bezier(.2,.9,.2,1)';
+          c.style.opacity = 1;
+          c.style.transform = c.style.transform.replace('translateY(18px)','translateY(0)');
+        }, i * 90);
+      });
+      observer.unobserve(entry.target);
+    });
+  }, opts);
+
+  document.querySelectorAll('.content .container').forEach(c => io.observe(c));
+})();
+
+/* ----------------- Dev preview toggles & live links ----------------- */
+(function(){
+  document.querySelectorAll('[data-preview-toggle]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const card = e.target.closest('.card');
+      const pre = card.querySelector('.dev-preview');
+      const snippet = card.getAttribute('data-snippet') || '// snippet not available';
+      const expanded = pre.classList.contains('visible');
+      if (!expanded) {
+        pre.textContent = snippet;
+        pre.classList.add('visible');
+        pre.setAttribute('aria-hidden','false');
+        e.target.setAttribute('aria-expanded','true');
+      } else {
+        pre.classList.remove('visible');
+        pre.setAttribute('aria-hidden','true');
+        e.target.setAttribute('aria-expanded','false');
+      }
+      if (navigator.vibrate) navigator.vibrate(20);
+    });
+  });
+
+  document.querySelectorAll('[data-live-link]').forEach(a => {
+    const card = a.closest('.card');
+    // data-live attribute could be set; if not, keep anchor empty
+    const live = card.getAttribute('data-live');
+    if (live && live.length) {
+      a.href = live;
+      a.target = '_blank';
+      a.rel = 'noopener';
+    } else {
+      a.style.display = 'none';
+    }
+  });
+})();
+
+
+(function(){
+  const sections = document.querySelectorAll('header.site-nav, main.hero, section.content, footer.site-foot');
+
+  // Add reveal class initially
+  sections.forEach(sec => sec.classList.add('reveal'));
+
+  // IntersectionObserver for scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Only animate children that are NOT cards
+        const children = entry.target.querySelectorAll('*:not(.card):not(.card3d)');
+        children.forEach((child, i) => {
+          // Skip cards inside any parent
+          if (child.closest('.card') || child.closest('.card3d')) return;
+          if (!child.classList.contains('reveal')) child.classList.add('reveal');
+          setTimeout(() => child.classList.add('visible'), i * 80); // stagger
+        });
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  sections.forEach(sec => io.observe(sec));
+
+  // Page load stagger (excluding cards)
+  window.addEventListener('load', () => {
+    sections.forEach((sec, i) => {
+      setTimeout(() => sec.classList.add('visible'), i * 150);
+    });
+  });
+})();
+const element = document.querySelector('.profession');
+const words = ['Creative Developer', 'Designer']; // add more if needed
+let wordIndex = 0;
+let charIndex = 0;
+let typing = true;
+
+function typeWriter() {
+  const currentWord = words[wordIndex];
+  
+  if (typing) {
+    element.textContent = currentWord.slice(0, charIndex + 1);
+    charIndex++;
+    if (charIndex === currentWord.length) {
+      typing = false;
+      setTimeout(typeWriter, 1000); // pause at full word
+      return;
+    }
+  } else {
+    element.textContent = currentWord.slice(0, charIndex - 1);
+    charIndex--;
+    if (charIndex === 0) {
+      typing = true;
+      wordIndex = (wordIndex + 1) % words.length;
+      setTimeout(typeWriter, 500); // pause before next word
+      return;
+    }
+  }
+  setTimeout(typeWriter, 120); // typing/backspace speed
+}
+
+typeWriter();
+
+</script>
+
+</body>
 </html>

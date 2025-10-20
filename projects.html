@@ -1,298 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Poppins|Montserrat"
-    />
-    <script
-      src="https://kit.fontawesome.com/9603c04a31.js"
-      crossorigin="anonymous"
-    ></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
-    <style>
-        @font-face {
-  font-family: 'Chillax-Regular';
-  src: url('../fonts/Chillax-Regular.woff2') format('woff2'),
-       url('../fonts/Chillax-Regular.woff') format('woff'),
-       url('../fonts/Chillax-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" />
+<script src="https://kit.fontawesome.com/9603c04a31.js" crossorigin="anonymous"></script>
+<style>
+:root{
+  --bg:#0e0e10;
+  --panel:#111316;
+  --text:#f1f1f1;
+  --muted:#9aa6b2;
+  --accent:#8b5cf6;
+  --accent-glow: rgba(139,92,246,0.4);
 }
-      body {
-        font-family: poppins;
-        display: flex;
-        margin: 0;
-        width: 100%;
-        align-items: center;
-        flex-direction: column;
-        background-color: #0a1714;
-        color: #dfeeea;
-      }
-       #header{
-display: flex;
-align-items: center;
-justify-content: space-around;
-      }
-      #back{
-        color: #eaf5f2;
-      }
-      #select-container{
-        display: flex;
-        align-items: center;
-        padding: 30px;
-      }
-      select{
-        font-family: chillax-regular;
-        outline: none;
-        height: 30px;
-        background: transparent;
-        border: none;
-        color: #6d7472;
-        text-align: center;
-      }
-      .isActive{
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        background-color: red;
-        border-radius: 20px;
-      align-self:flex-end;
-      margin-top: -130px;
-      margin-right: 20px;
-    
-      }
-         #project-container {
-        display: grid;
-        gap: 20px;
-        grid-template-columns: repeat(3, 1fr);
-      }
-      #projects h1 {
-        text-align: center;
-        text-wrap: balance;
-        font-size: 2rem;
-      }
-      .project-card.opacity{
-        opacity: 1;
-      }
-        .project-card {
-            opacity: 0;
-         color: #0a1714;
-        cursor: pointer;
-        width: 220px;
-        height: 200px;
-        background-color: #eaf5f2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        gap: 30px;
-        border-radius: 20px;
-        transition: transform 0.3s ease,opacity 600ms ease;
-      }
-      .project-card:hover {
-        transform: scale(1.08);
-      }
-      .project-card a {
-        font-size: 1.2rem;
-        color: #0a1714;
-        text-decoration: none;
-      }
-       @media (max-width: 786px) {
-        #projects{
-        width: 100%;
-      }
-        #project-container {
-          grid-template-columns: repeat(1, 1fr);
-          place-items: center;
-        }
-        #projects h1 {
-          text-align: center;
-          font-size: 2rem;
-        }
-        .project-card {
-          width: 80%;
-          height: 130px;
-          
-        }
-        .project-card a {
-font-size: 1.3rem;
-        }
-        .isActive{
-            margin-top: -80px;
-      margin-right: 20px;
-        }
-      }
-     
-    </style>
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--text);}
+a{text-decoration:none;color:inherit;}
+
+/* ---------- Header ---------- */
+#header{
+  width:min(1100px,94%);
+  margin:20px auto 40px;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;
+}
+#back{ font-size:1.8rem; transition: transform .2s ease; color:var(--text);}
+#back:hover{ transform: translateX(-4px);}
+#select-container{ display:flex; align-items:center; gap:12px;}
+select{
+  background: var(--panel);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:8px 14px; border-radius:12px;
+  color:var(--text); font-weight:600; cursor:pointer;
+  font-family:'Space Grotesk';
+  transition: all .2s ease;
+}
+select:hover, select:focus{ border-color: var(--accent); outline:none; }
+
+/* ---------- Title ---------- */
+h1.head{
+  text-align:center;
+  font-weight:700;
+  font-size:clamp(2rem,4vw,2.5rem);
+  margin:0 0 40px;
+}
+
+/* ---------- Cards ---------- */
+#project-container{
+  display:flex;
+  flex-wrap: wrap;
+  gap:25px;
+  max-width:1200px;
+  margin-inline:auto;
+  padding-bottom:60px;
+  justify-content: center;
+}
+.project-card{ perspective:1000px; height:190px; position:relative;width: 300px;flex-shrink: 0; max-width:300px;;} 
+.card-inner{
+  position:relative; width:100%; height:100%;
+  transform-style:preserve-3d;
+  transition: transform .6s ease;
+}
+.project-card:hover .card-inner{ transform:rotateY(180deg); }
+
+.card-front, .card-back{
+  position:absolute; width:100%; height:100%; border-radius:14px;
+  backface-visibility:hidden;
+  display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
+  box-shadow:0 8px 25px rgba(0,0,0,0.3);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.card-front{
+  background:var(--panel);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.05);
+  color:var(--text);
+  padding:20px;
+}
+.card-front i{ font-size:2rem; color:var(--accent); margin-bottom:10px; }
+.card-front a{ font-weight:600; color:var(--text); font-size:1.1rem; }
+
+.card-back{
+  transform:rotateY(180deg);
+  background: rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.08);
+  color: var(--text);
+  backdrop-filter:blur(6px);
+  padding:20px;
+}
+.view-btn{
+  background: rgba(255,255,255,0.1);
+  padding:8px 14px; border-radius:999px; font-weight:600; color:#fff;
+  border:1px solid rgba(255,255,255,0.2); margin-top:12px;
+  transition: background .2s ease;
+}
+.view-btn:hover{ background: rgba(255,255,255,0.25); }
+
+/* ---------- isActive ---------- */
+.isActive{
+  position:absolute; bottom:12px; right:12px;
+  width:12px; height:12px; border-radius:50%;
+  background:green; /* will override via JS */
+  box-shadow:0 0 8px var(--accent-glow);
+  animation: pulse 1.5s infinite ease-in-out;
+}
+@keyframes pulse{
+  0%, 100%{ transform:scale(1); opacity:0.8;}
+  50%{ transform:scale(1.4); opacity:1;}
+}
+
+/* ---------- Reveal ---------- */
+.reveal{ opacity:0; transform:translateY(20px); transition:all .6s ease; }
+.reveal.visible{ opacity:1; transform:translateY(0); }
+
+/* ---------- Cursor spotlight ---------- */
+.spotlight{
+  position:absolute; inset:0; z-index:50; pointer-events:none;
+  background: radial-gradient(250px 250px at var(--mx,50%) var(--my,50%), rgba(255,255,255,0.06), transparent 25%);
+  mix-blend-mode: screen;
+  transition: background .08s linear;
+}
+
+/* ---------- Responsive ---------- */
+@media(max-width:900px){ 
+  #header{justify-content:center;} 
+  .project-card{height:180px;} 
+}
+@media(max-width:600px){ 
+  .project-card{height:160px;} 
+  h1.head{ font-size:1.8rem; } 
+}
+</style>
 </head>
 <body>
-   
-    <section class="section" id="projects">
-       <div id="header">
-<a href="/index.html" id="back"><i class="fa-solid fa-arrow-left fa-2xl"></i></a> 
-      
-      <div id="select-container">
-        <p>Sort:</p>
-        <select id="select">
-            <option value="default">Default</option>
-            <option value="az">A-Z</option>
-             <option value="za">Z-A</option>
-              <option value="active">Active</option>
-              <option value="non-active">Not-Active</option>
-        </select>
-      </div>
-       </div> 
-       <h1 class="head">All Projects</h1>
-      <div id="project-container">
-      </div>
-    </section> <br>
-    <script>
 
-        const projectsObject = [
-           {
-                image:"calendar",
-                link:"https://faiz-calendar.netlify.app/",
-                content:"Calendar"
-            },
-           {
-                image:"book-atlas",
-                link:"https://faiz-gktest.netlify.app/",
-                content:"GK test"
-            },
-          {
-                image:"person",
-                link:"https://faiz-hangman.netlify.app/",
-                content:"Hangman"
-            },
-           {
-                image:"3",
-                link:"https://faiz-gtn.netlify.app/",
-                content:"Guess The Number"
-            },
-             {
-                image:"o",
-                link:"https://faiz-xo.netlify.app/",
-                content:"Tic-Tac-toe"
-            },
-            {
-                image:"brain",
-                link:"https://faiz-memorygame.netlify.app/",
-                content:"Memory Game"
-            },
-             {
-                image:"tiktok",
-                link:null,
-                content:"TikTok Clone"
-            },
-            {
-                image:"question",
-                link:"https://faiz-quizapp.netlify.app/",
-                content:"Quiz app"
-            },
-            {
-                image:"calculator",
-                link:"https://faiz-cr.netlify.app/",
-                content:"Calculator"
-            },
-             {
-                image:"0",
-                link:"https://faiz-numbers.netlify.app/",
-                content:"Special Numbers"
-            },
-             {
-                image:"hand-back-fist",
-                link:"https://faiz-rps.netlify.app/",
-                content:"RPS game"
-            },
-            {
-                image:"list",
-                link:"https://faiz-tdl.netlify.app/",
-                content:"To-do list"
-            },
-            {
-                image:"lock",
-                link:"https://faiz-pswrd.netlify.app/",
-                content:"Password Generator"
-            },
-             {
-                image:"pen",
-                link:"https://faiz-quicknotes.netlify.app/",
-                content:"Quick Notes"
-            },
-            {
-                image:"repeat",
-                link:"https://faiz-uc.netlify.app/",
-                content:"Unit Converter"
-            },
-            {
-                image:"greater-than-equal",
-                link:null,
-                content:"Math quiz"
-            },
-            {
-                image:"cart-shopping",
-                link:"https://atom-tec.netlify.app/",
-                content:"Tech E-commerce"
-            },
-             {
-                image:"gift",
-                link:"https://fancy-suprise.netlify.app/",
-                content:"Design E-commerce"
-            },
-        ]
-        const projectsContainer=document.getElementById("project-container");
-        function container(array){
-             projectsContainer.innerHTML="";
-            array.forEach((item)=>{
-                projectsContainer.innerHTML+=`<div class="project-card">
-          <i class="fa-solid fa-${item.image} fa-2xl"></i>
-          <a href="${item.link!==null?item.link:"#"}" target="${item.link!==null?"_blank":"_self"}">${item.content}</a>
-          <div class="isActive" style="background-color:${item.link!==null?"green":"red"}"></div>
-        </div>`
-        const observer = new IntersectionObserver((entries)=>{
-        entries.forEach((entry)=>{
-          if(entry.isIntersecting){
-        entry.target.classList.add("opacity")
-          }
-          else{
-            entry.target.classList.remove("opacity")
-          }
-        })
-      },{})
-        const cards = document.querySelectorAll(".project-card");
-        cards.forEach(el => observer.observe(el));
-            })
-        }
-         const select = document.getElementById("select");
-     select.addEventListener("change",function(){
-switch(select.value){
-        case "az":
-     container(projectsObject.sort((a,b)=>a.content.localeCompare(b.content)));
-     break;
-       case "za":
-     container(projectsObject.sort((a,b)=>b.content.localeCompare(a.content)));
-     break;
-            case "active":
-     container(projectsObject.filter(item=>item.link!==null));
-     break;
-     case "non-active":
-     container(projectsObject.filter(item=>item.link===null));
-     break;
-     default:
-        container(projectsObject);
-        break;
-     }
-     })
-            container(projectsObject);
-       
-        
-    
-     
-    </script>
+<div class="spotlight"></div>
+
+<section id="projects">
+  <div id="header">
+    <a href="/index.html" id="back"><i class="fa-solid fa-arrow-left"></i></a>
+    <div id="select-container">
+      <p>Sort:</p>
+      <select id="select">
+        <option value="default">Default</option>
+        <option value="az">A-Z</option>
+        <option value="za">Z-A</option>
+        <option value="active">Active</option>
+        <option value="non-active">Not-Active</option>
+      </select>
+    </div>
+  </div>
+  <h1 class="head">All Projects</h1>
+  <div id="project-container"></div>
+</section>
+
+<script>
+const projectsObject = [
+  { image:"calendar", link:"https://faiz-calendar.netlify.app/", content:"Calendar" },
+  { image:"book-atlas", link:"https://faiz-gktest.netlify.app/", content:"GK test" },
+  { image:"person", link:"https://faiz-hangman.netlify.app/", content:"Hangman" },
+  { image:"3", link:"https://faiz-gtn.netlify.app/", content:"Guess The Number" },
+  { image:"o", link:"https://faiz-xo.netlify.app/", content:"Tic-Tac-toe" },
+  { image:"brain", link:"https://faiz-memorygame.netlify.app/", content:"Memory Game" },
+  { image:"tiktok", link:null, content:"TikTok Clone" },
+  { image:"question", link:"https://faiz-quizapp.netlify.app/", content:"Quiz app" },
+  { image:"calculator", link:"https://faiz-cr.netlify.app/", content:"Calculator" },
+  { image:"0", link:"https://faiz-numbers.netlify.app/", content:"Special Numbers" },
+  { image:"hand-back-fist", link:"https://faiz-rps.netlify.app/", content:"RPS game" },
+  { image:"list", link:"https://faiz-tdl.netlify.app/", content:"To-do list" },
+  { image:"lock", link:"https://faiz-pswrd.netlify.app/", content:"Password Generator" },
+  { image:"pen", link:"https://faiz-quicknotes.netlify.app/", content:"Quick Notes" },
+  { image:"repeat", link:"https://faiz-uc.netlify.app/", content:"Unit Converter" },
+  { image:"greater-than-equal", link:null, content:"Math quiz" },
+  { image:"cart-shopping", link:"https://atom-tec.netlify.app/", content:"Tech E-commerce" },
+  { image:"gift", link:"https://fancy-suprise.netlify.app/", content:"Design E-commerce" },
+];
+
+const container = document.getElementById("project-container");
+
+function render(array){
+  container.innerHTML="";
+  array.forEach(item=>{
+    container.innerHTML += `
+      <div class="project-card reveal">
+        <div class="card-inner">
+          <div class="card-front">
+            <i class="fa-solid fa-${item.image}"></i>
+            <a href="${item.link!==null?item.link:'#'}" target="${item.link!==null?"_blank":"_self"}">${item.content}</a>
+            <div class="isActive" style="background-color:${item.link!==null?'green':'red'}"></div>
+          </div>
+          <div class="card-back">
+            <p>${item.link!==null?'Live Project':'Not Live Yet'}</p>
+            ${item.link!==null?'<a class="view-btn" href="'+item.link+'" target="_blank">View</a>':''}
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ entry.target.classList.add('visible'); }
+    });
+  }, {threshold:0.1});
+  document.querySelectorAll('.project-card').forEach(el=>observer.observe(el));
+}
+
+document.getElementById("select").addEventListener("change",()=>{ 
+  const sel = document.getElementById("select").value;
+  switch(sel){
+    case "az": render([...projectsObject].sort((a,b)=>a.content.localeCompare(b.content))); break;
+    case "za": render([...projectsObject].sort((a,b)=>b.content.localeCompare(a.content))); break;
+    case "active": render(projectsObject.filter(p=>p.link!==null)); break;
+    case "non-active": render(projectsObject.filter(p=>p.link===null)); break;
+    default: render(projectsObject); break;
+  }
+});
+
+render(projectsObject);
+
+/* ---------- Spotlight cursor ---------- */
+document.addEventListener('mousemove',e=>{
+  document.documentElement.style.setProperty('--mx', e.clientX+'px');
+  document.documentElement.style.setProperty('--my', e.clientY+'px');
+});
+</script>
 </body>
 </html>
